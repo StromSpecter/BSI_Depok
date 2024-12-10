@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { RiCloseFill } from "react-icons/ri";
+import { API_URL } from "../utils/constant";
 
 const EditNewsMod = ({ news, onClose, onNewsUpdated }) => {
   const [formData, setFormData] = useState({
@@ -70,7 +71,7 @@ const EditNewsMod = ({ news, onClose, onNewsUpdated }) => {
       try {
         setLoading(true);
         const response = await axios.put(
-          `http://localhost:5001/api/newss/${news.id}`,
+          `${API_URL}/newss/${news.id}`,
           fromDataToSend,
           {
             headers: {

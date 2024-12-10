@@ -4,6 +4,7 @@ import useMod from "../hooks/useMod"; // pastikan path ke useMod benar
 import AddNewsMod from "../mods/AddNewsMod";
 import EditNewsMod from "../mods/EditNewsMod";
 import ViewNewsMod from "../mods/ViewNewsMod";
+import { API_FILEURL, API_URL } from "../utils/constant";
 
 const NewssPage = () => {
   const { modals, selectedItem, handleOpenModal, handleCloseModal } = useMod();
@@ -24,7 +25,7 @@ const NewssPage = () => {
     const fetchNews = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5001/api/newss");
+        const response = await axios.get(`${API_URL}/newss`);
         setNews(response.data);
       } catch (error) {
         setError(error.message || "Failed to fetch news");
@@ -43,7 +44,7 @@ const NewssPage = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5001/api/newss/${newsId}`);
+      await axios.delete(`${API_URL}/newss/${newsId}`);
       setNews((prevNews) => prevNews.filter((news) => news.id !== newsId));
       alert("News deleted successfully!");
     } catch (error) {
@@ -98,7 +99,7 @@ const NewssPage = () => {
               <div
                 className="w-full bg-red-500 bg-center bg-cover h-60"
                 style={{
-                  backgroundImage: `url(http://localhost:5001/uploads/${news.image})`,
+                  backgroundImage: `url(${API_FILEURL}/${news.image})`,
                 }}
               ></div>
 

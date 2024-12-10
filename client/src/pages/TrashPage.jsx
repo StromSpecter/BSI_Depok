@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_FILEURL, API_URL } from "../utils/constant";
 
 const TrashPage = () => {
   const [trashData, setTrashData] = useState([]);
@@ -9,7 +10,7 @@ const TrashPage = () => {
     // Fungsi untuk memanggil API
     const fetchTrashData = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/api/trashs");
+        const response = await axios.get(`${API_URL}/trashs`);
         setTrashData(response.data);
       } catch (error) {
         console.error("Error fetching trash data:", error);
@@ -59,7 +60,7 @@ const TrashPage = () => {
                   >
                     <div className="w-full rounded-md h-60">
                       <img
-                        src={`http://localhost:5001/uploads/${item.image}`}
+                        src={`${API_FILEURL}/uploads/${item.image}`}
                         alt="image"
                         className="object-cover w-full h-full rounded-md"
                       />

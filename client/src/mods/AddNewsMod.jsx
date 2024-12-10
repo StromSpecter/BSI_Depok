@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { RiCloseFill } from "react-icons/ri";
+import { API_URL } from "../utils/constant";
 
 const AddNewsMod = ({ onClose, onNewsAdded }) => {
   const [formData, setFormData] = useState({
@@ -65,7 +66,7 @@ const AddNewsMod = ({ onClose, onNewsAdded }) => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5001/api/newss",
+          `${API_URL}/newss`,
           data,
           {
             headers: {

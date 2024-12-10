@@ -1,4 +1,5 @@
 import { RiCloseFill } from "react-icons/ri";
+import { API_FILEURL } from "../utils/constant";
 
 const ViewProgramMod = ({ onClose, program }) => {
   const formatDate = (dateString) => {
@@ -38,7 +39,7 @@ const ViewProgramMod = ({ onClose, program }) => {
             </div>
             <div className="w-10 h-10">
               <img
-                src={`http://localhost:5001/uploads/${program.icon}`}
+                src={`${API_FILEURL}/${program.icon}`}
                 alt="Icon"
                 className="object-cover w-full h-full p-1 rounded-full bg-primary-500"
               />
@@ -53,12 +54,12 @@ const ViewProgramMod = ({ onClose, program }) => {
           </div>
           <div className="grid gap-2 sm:grid-cols-2">
             <img
-              src={`http://localhost:5001/uploads/${program.image1}`}
+              src={`${API_FILEURL}/${program.image1}`}
               alt="Image 1"
               className="object-cover w-full h-32 rounded-md"
             />
             <img
-              src={`http://localhost:5001/uploads/${program.image2}`}
+              src={`${API_FILEURL}/${program.image2}`}
               alt="Image 2"
               className="object-cover w-full h-32 rounded-md"
             />

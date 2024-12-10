@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RiCloseFill } from "react-icons/ri";
 import axios from "axios";
+import { API_URL } from "../utils/constant";
 
 const AddPartnerMod = ({ onClose, onPartnerAdded }) => {
   const [formData, setFormData] = useState({
@@ -41,7 +42,7 @@ const AddPartnerMod = ({ onClose, onPartnerAdded }) => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5001/api/partners",
+          `${API_URL}/partners`,
           data,
           {
             headers: {

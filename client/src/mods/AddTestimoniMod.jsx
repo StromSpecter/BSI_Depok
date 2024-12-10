@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RiCloseFill } from "react-icons/ri";
 import axios from "axios";
+import { API_URL } from "../utils/constant";
 
 const AddTestimoniMod = ({ onClose, onTestimonialAdded }) => {
   const [formData, setFormData] = useState({
@@ -54,7 +55,7 @@ const AddTestimoniMod = ({ onClose, onTestimonialAdded }) => {
       try {
         // Kirim data ke endpoint
         const response = await axios.post(
-          "http://localhost:5001/api/testimonials",
+          `${API_URL}/testimonials`,
           formData
         );
         console.log("Testimonial submitted:", response.data);

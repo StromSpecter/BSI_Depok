@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AuthLayouts from "../layouts/AuthLayouts";
 import logo from "../assets/logo.svg";
+import { API_URL } from "../utils/constant";
 
 const SigninPage = () => {
   const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ const SigninPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5001/api/auth/signin",
+        `${API_URL}/auth/signin`,
         {
           email,
           password,

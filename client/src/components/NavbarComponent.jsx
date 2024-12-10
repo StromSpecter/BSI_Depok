@@ -143,10 +143,18 @@ const NavbarComponent = () => {
             </p>
             <div className="flex flex-row gap-2.5 items-center justify-center">
               <p className="text-white">Contact us: </p>
-              <RiLinkedinFill className="text-white" />
-              <RiFacebookFill className="text-white" />
-              <RiInstagramFill className="text-white" />
-              <RiWhatsappFill className="text-white" />
+              <a href="https://www.linkedin.com/company/bsi-rumah-harum/posts/?feedView=all">
+                <RiLinkedinFill className="text-white" />
+              </a>
+              <a href="https://www.facebook.com/share/9Xi4X4kES7mpwJAH/?mibextid=qi2Omg">
+                <RiFacebookFill className="text-white" />
+              </a>
+              <a href="https://www.instagram.com/bsirumahharum/?next=%2F">
+                <RiInstagramFill className="text-white" />
+              </a>
+              <a href="https://api.whatsapp.com/send/?phone=%2B6285311965509&text&type=phone_number&app_absent=0">
+                <RiWhatsappFill className="text-white" />
+              </a>
             </div>
           </div>
         </div>

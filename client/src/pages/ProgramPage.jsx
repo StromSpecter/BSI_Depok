@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_FILEURL, API_URL } from "../utils/constant";
 
 const ProgramPage = () => {
   const { path } = useParams(); // Ambil parameter path dari URL
@@ -11,7 +12,7 @@ const ProgramPage = () => {
     const fetchProgramData = async () => {
       try {
         // Fetch all programs untuk mencocokkan path dengan ID
-        const response = await axios.get("http://localhost:5001/api/programs");
+        const response = await axios.get(`${API_URL}/programs`);
         const programs = response.data;
 
         // Cari program berdasarkan path yang aktif
@@ -22,7 +23,7 @@ const ProgramPage = () => {
         if (matchedProgram) {
           // Fetch detail program berdasarkan ID
           const detailResponse = await axios.get(
-            `http://localhost:5001/api/programs/${matchedProgram.id}`
+            `${API_URL}/programs/${matchedProgram.id}`
           );
           setProgramData(detailResponse.data);
         } else {
@@ -58,14 +59,14 @@ const ProgramPage = () => {
         <div className="flex flex-col w-full h-full gap-5 md:relative">
           <div className="top-0 left-0 md:absolute md:w-2/3 md:h-2/3 rounded-3xl">
             <img
-              src={`http://localhost:5001/uploads/${programData.image1}`}
+              src={`${API_FILEURL}/${programData.image1}`}
               alt=""
               className="object-cover w-full h-[242px] md:h-full rounded-3xl"
             />
           </div>
           <div className="bottom-0 right-0 md:absolute md:w-2/3 md:h-2/3 rounded-3xl">
             <img
-              src={`http://localhost:5001/uploads/${programData.image2}`}
+              src={`${API_FILEURL}/${programData.image2}`}
               alt=""
               className="object-cover w-full h-[242px] md:h-full rounded-3xl"
             />

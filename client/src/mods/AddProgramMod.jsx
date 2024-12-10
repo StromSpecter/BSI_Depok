@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { RiCloseFill } from "react-icons/ri";
+import { API_URL } from "../utils/constant";
 
 const AddProgramMod = ({ onClose, onProgramAdded }) => {
   const [step, setStep] = useState(1);
@@ -93,7 +94,7 @@ const AddProgramMod = ({ onClose, onProgramAdded }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5001/api/programs",
+        `${API_URL}/programs`,
         formDataToSend,
         {
           headers: { "Content-Type": "multipart/form-data" },

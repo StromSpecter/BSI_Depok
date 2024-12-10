@@ -1,4 +1,5 @@
 import { RiCloseFill } from "react-icons/ri";
+import { API_FILEURL } from "../utils/constant";
 
 const ViewNewsMod = ({ onClose, news }) => {
   return (
@@ -26,7 +27,7 @@ const ViewNewsMod = ({ onClose, news }) => {
           </div>
           <div className="w-full h-full">
             <img
-              src={`http://localhost:5001/uploads/${news.image}`}
+              src={`${API_FILEURL}/${news.image}`}
               alt="Image 1"
               className="object-cover w-full h-32 rounded-md"
             />

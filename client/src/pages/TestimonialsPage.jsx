@@ -4,6 +4,7 @@ import axios from "axios";
 import useMod from "../hooks/useMod";
 import AddTestimoniMod from "../mods/AddTestimoniMod";
 import EditTestimoniMod from "../mods/EditTestimoniMod";
+import { API_URL } from "../utils/constant";
 
 const TestimonialsPage = () => {
   const { modals, selectedItem, handleOpenModal, handleCloseModal } = useMod();
@@ -17,7 +18,7 @@ const TestimonialsPage = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "http://localhost:5001/api/testimonials"
+          `${API_URL}/testimonials`
         );
         setTestimonials(response.data);
       } catch (err) {
@@ -46,7 +47,7 @@ const TestimonialsPage = () => {
 
     try {
       await axios.delete(
-        `http://localhost:5001/api/testimonials/${testimonialId}`
+        `${API_URL}/testimonials/${testimonialId}`
       );
       setTestimonials((prevTestimonials) =>
         prevTestimonials.filter(

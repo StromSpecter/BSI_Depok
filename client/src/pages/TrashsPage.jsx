@@ -3,6 +3,7 @@ import axios from "axios";
 import useMod from "../hooks/useMod"; // pastikan path ke useMod benar
 import AddTrashMod from "../mods/AddTrashMod";
 import EditTrashMod from "../mods/EditTrashMod";
+import { API_FILEURL, API_URL } from "../utils/constant";
 
 const TrashsPage = () => {
   const { modals, selectedItem, handleOpenModal, handleCloseModal } = useMod();
@@ -15,7 +16,7 @@ const TrashsPage = () => {
     const fetchTrashs = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get("http://localhost:5001/api/trashs");
+        const response = await axios.get(`${API_URL}/trashs`);
         setTrashs(response.data);
       } catch (error) {
         setError(error.message || "Failed to fetch trashs");
@@ -46,7 +47,7 @@ const TrashsPage = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5001/api/trashs/${trashId}`);
+      await axios.delete(`${API_URL}/trashs/${trashId}`);
       setTrashs((prevTrashs) =>
         prevTrashs.filter((trash) => trash.id !== trashId)
       );
@@ -116,7 +117,7 @@ const TrashsPage = () => {
             >
               <div className="w-full h-40">
                 <img
-                  src={`http://localhost:5001/uploads/${trash.image}`}
+                  src={`${API_FILEURL}/${trash.image}`}
                   alt=""
                   className="object-cover w-full h-full bg-red-500 rounded-3xl"
                 />

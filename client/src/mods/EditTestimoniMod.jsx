@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { RiCloseFill } from "react-icons/ri";
+import { API_URL } from "../utils/constant";
 
 const EditTestimoniMod = ({ testimonial, onClose, onTestimonialUpdated }) => {
   const [formData, setFormData] = useState({
@@ -56,7 +57,7 @@ const EditTestimoniMod = ({ testimonial, onClose, onTestimonialUpdated }) => {
       try {
         setLoading(true);
         const response = await axios.put(
-          `http://localhost:5001/api/testimonials/${testimonial.id}`,
+          `${API_URL}/testimonials/${testimonial.id}`,
           formData
         );
         console.log("Response:", response.data);

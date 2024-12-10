@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RiCloseFill } from "react-icons/ri";
 import axios from "axios";
+import { API_URL } from "../utils/constant";
 
 const AddTrashMod = ({ onClose, onTrashAdded }) => {
   const [formData, setFormData] = useState({
@@ -45,7 +46,7 @@ const AddTrashMod = ({ onClose, onTrashAdded }) => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5001/api/trashs",
+          `${API_URL}/trashs`,
           data,
           {
             headers: {

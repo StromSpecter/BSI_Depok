@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { RiCloseFill } from "react-icons/ri";
+import { API_URL } from "../utils/constant";
 
 const AddKemitraanMod = ({ onClose, onKemitraanAdded }) => {
   const [formData, setFormData] = useState({
@@ -47,7 +48,7 @@ const AddKemitraanMod = ({ onClose, onKemitraanAdded }) => {
       formDataToSend.append("jumlah", formData.jumlah);
 
       const response = await axios.post(
-        "http://localhost:5001/api/kemitraans",
+        `${API_URL}/kemitraans`,
         formDataToSend
       );
       console.log("Success:", response.data);

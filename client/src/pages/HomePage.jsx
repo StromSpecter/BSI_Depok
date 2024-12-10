@@ -12,6 +12,7 @@ import logo from "../assets/logo.svg";
 import { FaGlassMartini, FaLeaf } from "react-icons/fa";
 import { IoIosPaper } from "react-icons/io";
 import { IoSettings } from "react-icons/io5";
+import { API_URL, API_FILEURL } from "../utils/constant";
 
 const HomePage = () => {
   const [programs, setPrograms] = useState([]);
@@ -24,7 +25,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchPrograms = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/api/programs");
+        const response = await axios.get(`${API_URL}/programs`);
         setPrograms(response.data); // Asumsikan API mengembalikan array program
       } catch (err) {
         console.error("Failed to fetch programs:", err);
@@ -38,9 +39,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchKemitraans = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5001/api/kemitraans"
-        );
+        const response = await axios.get(`${API_URL}/kemitraans`);
         setKemitraans(response.data); // Asumsikan API mengembalikan array kemitraan
       } catch (err) {
         console.error("Failed to fetch kemitraans:", err);
@@ -54,9 +53,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchTestimonis = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5001/api/testimonials"
-        );
+        const response = await axios.get(`${API_URL}/testimonials`);
         setTestimonis(response.data); // Asumsikan API mengembalikan array testimoni
       } catch (err) {
         console.error("Failed to fetch testimoni:", err);
@@ -70,7 +67,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchPartners = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/api/partners");
+        const response = await axios.get(`${API_URL}/partners`);
         setPartners(response.data); // Asumsikan API mengembalikan array partner
       } catch (err) {
         console.error("Failed to fetch partners:", err);
@@ -84,7 +81,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchTrashs = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/api/trashs");
+        const response = await axios.get(`${API_URL}/trashs`);
         setTrashs(response.data); // Asumsikan API mengembalikan array trash
       } catch (err) {
         console.error("Failed to fetch trashs:", err);
@@ -136,7 +133,7 @@ const HomePage = () => {
                 {/* Placeholder Icon */}
                 <div className="w-20 h-20">
                   <img
-                    src={`http://localhost:5001/uploads/${program.icon}`}
+                    src={`${API_FILEURL}/${program.icon}`}
                     alt={program.title}
                     className="object-cover w-full h-full"
                   />
@@ -149,15 +146,11 @@ const HomePage = () => {
                 </a>
               </div>
               {/* Program Title */}
-              <p
-                className={`py-5 text-2xl font-bold line-clamp-2 text-white`}
-              >
+              <p className={`py-5 text-2xl font-bold line-clamp-2 text-white`}>
                 {program.title}
               </p>
               {/* Program Description */}
-              <p
-                className={` line-clamp-2 text-white`}
-              >
+              <p className={` line-clamp-2 text-white`}>
                 {program.description}
               </p>
             </div>
@@ -216,7 +209,7 @@ const HomePage = () => {
             >
               <div className="w-20 h-20">
                 <img
-                  src={`http://localhost:5001/uploads/${kemitraan.icon}`}
+                  src={`${API_FILEURL}/${kemitraan.icon}`}
                   alt="icon"
                   className="object-cover w-full h-full"
                 />
@@ -317,7 +310,7 @@ const HomePage = () => {
             className="flex items-center justify-center w-full h-full"
           >
             <img
-              src={`http://localhost:5001/uploads/${partner.image}`}
+              src={`${API_FILEURL}/${partner.image}`}
               alt="partner"
               className="object-cover w-full h-full"
             />

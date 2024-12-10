@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { RiCloseFill } from "react-icons/ri";
+import { API_URL } from "../utils/constant";
 
 const EditProgramMod = ({ onClose, program, onProgramUpdated }) => {
   const [step, setStep] = useState(1);
@@ -100,7 +101,7 @@ const EditProgramMod = ({ onClose, program, onProgramUpdated }) => {
       try {
         setLoading(true);
         const response = await axios.put(
-          `http://localhost:5001/api/programs/${program.id}`,
+          `${API_URL}/programs/${program.id}`,
           formDataToSend,
           {
             headers: {

@@ -62,18 +62,26 @@ const FooterComponent = () => {
         <div className="flex flex-col w-full h-full gap-5">
           <p className="text-xl font-semibold text-white">Sosial Media</p>
           <div className="flex flex-row gap-2.5">
-            <div className="flex flex-row items-center justify-center w-10 h-10 rounded-full bg-primary-200">
-              <RiLinkedinFill className="size-6 text-primary-500" />
-            </div>
-            <div className="flex flex-row items-center justify-center w-10 h-10 rounded-full bg-primary-200">
-              <RiFacebookFill className="size-6 text-primary-500" />
-            </div>
-            <div className="flex flex-row items-center justify-center w-10 h-10 rounded-full bg-primary-200">
-              <RiInstagramFill className="size-6 text-primary-500" />
-            </div>
-            <div className="flex flex-row items-center justify-center w-10 h-10 rounded-full bg-primary-200">
-              <RiWhatsappFill className="size-6 text-primary-500" />
-            </div>
+            <a href="https://www.linkedin.com/company/bsi-rumah-harum/posts/?feedView=all">
+              <div className="flex flex-row items-center justify-center w-10 h-10 rounded-full bg-primary-200">
+                <RiLinkedinFill className="size-6 text-primary-500" />
+              </div>
+            </a>
+            <a href="https://www.facebook.com/share/9Xi4X4kES7mpwJAH/?mibextid=qi2Omg">
+              <div className="flex flex-row items-center justify-center w-10 h-10 rounded-full bg-primary-200">
+                <RiFacebookFill className="size-6 text-primary-500" />
+              </div>
+            </a>
+            <a href="https://www.instagram.com/bsirumahharum/?next=%2F">
+              <div className="flex flex-row items-center justify-center w-10 h-10 rounded-full bg-primary-200">
+                <RiInstagramFill className="size-6 text-primary-500" />
+              </div>
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone=%2B6285311965509&text&type=phone_number&app_absent=0">
+              <div className="flex flex-row items-center justify-center w-10 h-10 rounded-full bg-primary-200">
+                <RiWhatsappFill className="size-6 text-primary-500" />
+              </div>
+            </a>
           </div>
         </div>
       </section>

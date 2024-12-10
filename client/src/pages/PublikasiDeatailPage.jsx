@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_FILEURL, API_URL } from "../utils/constant";
 
 const PublikasiDetailPage = () => {
   const { path } = useParams(); // Ambil parameter path dari URL
@@ -12,7 +13,7 @@ const PublikasiDetailPage = () => {
       try {
 
         // Fetch semua publikasi
-        const response = await axios.get("http://localhost:5001/api/newss");
+        const response = await axios.get(`${API_URL}/newss`);
         const publikasiList = response.data;
 
         // Cari publikasi yang cocok berdasarkan path
@@ -23,7 +24,7 @@ const PublikasiDetailPage = () => {
         if (matchedPublikasi) {
           // Fetch detail publikasi
           const detailResponse = await axios.get(
-            `http://localhost:5001/api/newss/${matchedPublikasi.id}`
+            `${API_URL}/newss/${matchedPublikasi.id}`
           );
           setPublikasiData(detailResponse.data);
         } else {
@@ -53,7 +54,7 @@ const PublikasiDetailPage = () => {
           <h1 className="text-3xl font-bold text-center">{publikasiData.title}</h1>
         <div className="w-full h-80">
           <img
-            src={`http://localhost:5001/uploads/${publikasiData.image}`}
+            src={`${API_FILEURL}/${publikasiData.image}`}
             alt="Publikasi Image 1"
             className="object-cover w-full h-full rounded-xl"
           />

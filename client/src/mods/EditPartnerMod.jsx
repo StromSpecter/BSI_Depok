@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { RiCloseFill } from "react-icons/ri";
+import { API_URL } from "../utils/constant";
 
 const EditPartnerMod = ({ partner, onClose, onPartnerUpdated }) => {
   const [formData, setFormData] = useState({
@@ -50,7 +51,7 @@ const EditPartnerMod = ({ partner, onClose, onPartnerUpdated }) => {
       try {
         setLoading(true);
         const response = await axios.put(
-          `http://localhost:5001/api/partners/${partner.id}`,
+          `${API_URL}/partners/${partner.id}`,
           formDataToSend,
           {
             headers: {

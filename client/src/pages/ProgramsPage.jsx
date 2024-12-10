@@ -4,6 +4,7 @@ import useMod from "../hooks/useMod"; // Pastikan path ke useMod benar
 import AddProgramMod from "../mods/AddProgramMod";
 import EditProgramMod from "../mods/EditProgramMod";
 import ViewProgramMod from "../mods/ViewProgramMod";
+import { API_FILEURL, API_URL } from "../utils/constant";
 
 const ProgramsPage = () => {
   const [programs, setPrograms] = useState([]); // State untuk menyimpan data dari API
@@ -12,7 +13,7 @@ const ProgramsPage = () => {
   // Fungsi untuk mengambil data dari API
   const fetchPrograms = async () => {
     try {
-      const response = await axios.get("http://localhost:5001/api/programs");
+      const response = await axios.get(`${API_URL}/programs`);
       setPrograms(response.data); // Simpan data ke state
     } catch (error) {
       console.error("Error fetching programs:", error);
@@ -28,7 +29,7 @@ const ProgramsPage = () => {
 
     try {
       // Panggil API untuk menghapus program
-      await axios.delete(`http://localhost:5001/api/programs/${programId}`);
+      await axios.delete(`${API_URL}/programs/${programId}`);
 
       // Perbarui state programs setelah program dihapus
       setPrograms((prevPrograms) =>
@@ -88,7 +89,7 @@ const ProgramsPage = () => {
             {/* Program Image */}
             <div className="relative">
               <img
-                src={`http://localhost:5001/uploads/${program.image1}`} // Gambar dari API
+                src={`${API_FILEURL}/${program.image1}`} // Gambar dari API
                 alt={program.title}
                 className="object-cover w-full h-40 bg-gray-200 rounded-t-lg"
               />

@@ -3,6 +3,7 @@ import axios from "axios";
 import useMod from "../hooks/useMod"; // pastikan path ke useMod benar
 import AddPartnerMod from "../mods/AddPartnerMod";
 import EditPartnerMod from "../mods/EditPartnerMod";
+import { API_FILEURL, API_URL } from "../utils/constant";
 
 const PartnersPage = () => {
   const { modals, selectedItem, handleOpenModal, handleCloseModal } = useMod();
@@ -15,7 +16,7 @@ const PartnersPage = () => {
     const fetchPartners = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5001/api/partners");
+        const response = await axios.get(`${API_URL}/partners`);
         setPartners(response.data);
       } catch (error) {
         setError(error.message || "Failed to fetch partners");
@@ -48,7 +49,7 @@ const PartnersPage = () => {
 
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:5001/api/partners/${partnerId}`);
+        await axios.delete(`${API_URL}/partners/${partnerId}`);
         setPartners((prevPartners) =>
           prevPartners.filter((partner) => partner.id !== partnerId)
         );
@@ -94,7 +95,7 @@ const PartnersPage = () => {
                 <p className="text-lg font-semibold">{partner.name}</p>
                 <div className="flex flex-row items-center justify-center w-full h-40">
                   <img
-                    src={`http://localhost:5001/uploads/${partner.image}`}
+                    src={`${API_FILEURL}/${partner.image}`}
                     alt={partner.name}
                     className="object-contain w-40 h-40"
                   />

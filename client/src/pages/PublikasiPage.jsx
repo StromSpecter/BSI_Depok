@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_FILEURL, API_URL } from "../utils/constant";
 
 const PublikasiPage = () => {
   const [news, setNews] = useState([]);
@@ -20,7 +21,7 @@ const PublikasiPage = () => {
     const fetchNews = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5001/api/newss");
+        const response = await axios.get(`${API_URL}/newss`);
         setNews(response.data);
       } catch (error) {
         setError(error.message || "Failed to fetch news");
@@ -86,7 +87,7 @@ const PublikasiPage = () => {
                     <div
                       className="w-full bg-red-500 bg-center bg-cover h-60"
                       style={{
-                        backgroundImage: `url(http://localhost:5001/uploads/${news.image})`,
+                        backgroundImage: `url(${API_FILEURL}/${news.image})`,
                       }}
                     ></div>
 

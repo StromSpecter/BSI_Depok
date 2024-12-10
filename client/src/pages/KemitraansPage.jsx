@@ -3,6 +3,7 @@ import axios from "axios";
 import useMod from "../hooks/useMod"; // Pastikan path ke useMod benar
 import AddKemitraanMod from "../mods/AddKemitraanMod";
 import EditKemitraanMod from "../mods/EditKemitraanMod";
+import { API_FILEURL, API_URL } from "../utils/constant";
 
 const KemitraansPage = () => {
   const { modals, selectedItem, handleOpenModal, handleCloseModal } = useMod();
@@ -16,7 +17,7 @@ const KemitraansPage = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "http://localhost:5001/api/kemitraans"
+          `${API_URL}/kemitraans`
         );
         setKemitraans(response.data);
       } catch (error) {
@@ -37,7 +38,7 @@ const KemitraansPage = () => {
 
     try {
       // Panggil API untuk menghapus kemitraan
-      await axios.delete(`http://localhost:5001/api/kemitraans/${kemitraanId}`);
+      await axios.delete(`${API_URL}/kemitraans/${kemitraanId}`);
 
       // Perbarui state kemitraans setelah kemitraan dihapus
       setKemitraans((prevKemitraans) =>
@@ -100,7 +101,7 @@ const KemitraansPage = () => {
                 {/* Icon */}
                 <div className="flex items-center justify-center w-20 h-20 text-2xl text-white rounded-full bg-primary-500">
                   <img
-                    src={`http://localhost:5001/uploads/${kemitraan.icon}`}
+                    src={`${API_FILEURL}/${kemitraan.icon}`}
                     alt="Icon"
                     className="w-full h-full p-4"
                   />

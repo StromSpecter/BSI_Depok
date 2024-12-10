@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { RiCloseFill } from "react-icons/ri";
+import { API_URL } from "../utils/constant";
 
 const EditKemitraanMod = ({ onClose, kemitraan, onKemitraanUpdated }) => {
   const [formData, setFormData] = useState({
@@ -58,7 +59,7 @@ const EditKemitraanMod = ({ onClose, kemitraan, onKemitraanUpdated }) => {
       try {
         setLoading(true);
         const response = await axios.put(
-          `http://localhost:5001/api/kemitraans/${kemitraan.id}`,
+          `${API_URL}/kemitraans/${kemitraan.id}`,
           formDataToSend,
           {
             headers: {

@@ -1,4 +1,4 @@
-import banner from "../assets/imgs/landing/banner2.svg";
+import banner from "../assets/imgs/landing/Bank Sampah Project Group.svg";
 import { FaMedal, FaRecycle, FaTrophy, FaAward } from "react-icons/fa";
 import { HiHomeModern } from "react-icons/hi2";
 import banner1 from "../assets/imgs/landing/Rectangle 37.svg";

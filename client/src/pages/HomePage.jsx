@@ -127,14 +127,10 @@ const HomePage = () => {
         <p className="text-5xl font-bold text-primary-800">Program</p>
         {error && <p className="text-red-500">{error}</p>}
         <div className="grid w-full h-full grid-cols-1 gap-5 md:grid-cols-3">
-          {programs.map((program, index) => (
+          {programs.map((program) => (
             <div
               key={program.id}
-              className={`w-full h-full p-5 rounded-3xl border ${
-                index % 2 === 0
-                  ? "bg-primary-500 text-white"
-                  : "bg-white text-black"
-              }`}
+              className={`w-full h-full p-5 rounded-3xl border bg-primary-500 text-white`}
             >
               <div className="flex flex-row items-center justify-between">
                 {/* Placeholder Icon */}
@@ -147,28 +143,20 @@ const HomePage = () => {
                 </div>
                 <a
                   href={`/program/${program.path}`}
-                  className={`w-10 h-10 border-2 rounded-full ${
-                    index % 2 === 0
-                      ? "border-white text-white"
-                      : "border-black text-black"
-                  }`}
+                  className={`w-10 h-10 border-2 rounded-full border-white text-white `}
                 >
                   <RiArrowRightUpLine className="w-full h-full" />
                 </a>
               </div>
               {/* Program Title */}
               <p
-                className={`py-5 text-2xl font-bold line-clamp-2 ${
-                  index % 2 === 0 ? "text-white" : "text-black"
-                }`}
+                className={`py-5 text-2xl font-bold line-clamp-2 text-white`}
               >
                 {program.title}
               </p>
               {/* Program Description */}
               <p
-                className={`${
-                  index % 2 === 0 ? "text-white" : "text-black"
-                } line-clamp-2`}
+                className={` line-clamp-2 text-white`}
               >
                 {program.description}
               </p>
